@@ -8,6 +8,20 @@ time.clock = time.time
 
 chatbot = ChatBot("BotRodrigo")
 conversa = [
+    "/start",
+    "Como você está?",
+    "Bem",
+    "Que ótimo",
+    "Feliz",
+    "Que ótimo",
+    "Alegre",
+    "Que ótimo",
+    "Mal",
+    "Poxa, que triste amigo",
+    "Triste",
+    "Poxa, que triste amigo",
+    "Cansado",
+    "Poxa, que triste amigo",
     "oi",
     "oi, tudo bem?",
     "tudo, e você?",
@@ -26,8 +40,10 @@ bot = telebot.TeleBot(API_KEY)
 
 
 def verificar(msg):
-    print(msg)
+    print(msg.from_user.first_name)
     match msg.text:
+        case "/start":
+            answer(msg)
         case "/opcao1":
             show_temp_rio(msg)
         case "/opcao2":
